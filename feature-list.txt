@@ -1,0 +1,21 @@
+RANCANGAN UNTUK PROGRAM
+
+Dashboard :
+Admin
+1. CRUD Data Staff Kandang
+(No. ID Karyawan, Nama, alamat, tanggal masuk kerja, no-hp)
+2. CRUD Data Staff Gudang
+(No. ID Karyawan, Nama, alamat, tanggal masuk kerja, no-hp)
+3. Lihat Data Persediaan Ayam Dikandang ( Diambil data dari staff kandang)
+4. Lihat Data Rekapitulasi Penjualan telur ( Diambil data dari kasir)
+
+Staff Kandang
+1. CRUD DOC Dari Supplier (Hari/Tanggal, Supplier, Kode, Deskripsi, Kuantitas Jual, Kendaraaan Pengiriman, Jam Tiba di Lokasi, Pembayaran)
+2. CRUD Ayam dikandang (Hari/tanggal, No. Kandang) Keterangan : sakit, mati, jumlah ayam dikandang.
+
+Staff Gudang
+1. CRUD Persediaan telur (Hari/tanggal, jenis telur) Keterangan : jenis telur A+, A, B, C, D, E
+
+Kasir 
+1. CRUD data penjualan dari bon faktur (Hari/tanggal, nama konsumen, banyaknya telur yang dibeli, jenis telur, harga satuan telur, dan jumlah bayar)
+2. Rekapitulasi Penjualan

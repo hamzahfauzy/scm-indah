@@ -1,0 +1,1 @@
+<?php require '../library/autoload.php'; ?>
