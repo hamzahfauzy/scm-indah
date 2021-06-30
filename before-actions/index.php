@@ -12,32 +12,24 @@ $__LAYOUTS = 'admin/index';
 // {
 // }
 
-if(startsWith($route,'admin/staff'))
-{
-    $__NAV_ACTIVE = 'staff';
-}
+$navs = [
+    'admin/staff' => 'staff',
+    'admin/kandang' => 'kandang',
+    'admin/persediaan' => 'persediaan',
+    'admin/pesanan' => 'pesanan',
+    'admin/laporan' => 'laporan',
+    'staff-kandang/ayam' => 'ayam',
+    'staff-kandang/kandang' => 'kandang',
+    'staff-gudang/telur' => 'telur',
+    'staff-kasir/penjualan' => 'penjualan',
+];
 
-if(startsWith($route,'admin/persediaan'))
+foreach($navs as $k => $v)
 {
-    $__NAV_ACTIVE = 'persediaan';
-}
+    if(startsWith($route,$k))
+    {
+        $__NAV_ACTIVE = $v;
+        break;
+    }
 
-if(startsWith($route,'admin/persediaan'))
-{
-    $__NAV_ACTIVE = 'persediaan';
-}
-
-if(startsWith($route,'staff-kandang/ayam'))
-{
-    $__NAV_ACTIVE = 'ayam';
-}
-
-if(startsWith($route,'staff-gudang/telur'))
-{
-    $__NAV_ACTIVE = 'telur';
-}
-
-if(startsWith($route,'staff-kasir/penjualan'))
-{
-    $__NAV_ACTIVE = 'penjualan';
 }

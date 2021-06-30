@@ -115,8 +115,16 @@ class Database
         {
             foreach($clause as $key => $value)
             {
-                $value = $this->connection->real_escape_string($value);
-                $string .= "$key='$value'";
+                if(is_array($value))
+                {
+                    $value[1] = $this->connection->real_escape_string($value[1]);
+                    $string .= "$key $value[0] '$value[1]'";
+                }
+                else
+                {
+                    $value = $this->connection->real_escape_string($value);
+                    $string .= "$key='$value'";
+                }
                 $last_iteration = !(--$count_clause);
                 if(!$last_iteration)
                     $string .= ' AND ';

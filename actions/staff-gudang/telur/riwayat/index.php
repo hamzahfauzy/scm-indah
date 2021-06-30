@@ -2,8 +2,8 @@
 $conn = get_connection();
 $db   = new src\Database($conn);
 
-$telur = $db->all('tb_telur');
+$telur = $db->all('tb_riwayat_telur');
 
-return view('staff-gudang/telur/index',[
+return view('staff-gudang/telur/riwayat/index',[
     'telur' => $telur
 ]);

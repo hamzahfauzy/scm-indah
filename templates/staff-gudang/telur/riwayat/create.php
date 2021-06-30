@@ -1,10 +1,10 @@
 <section class="content">
     <div class="container-fluid">
         <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-            <h1 class="h2">Tambah Data Persediaan Telur</h1>
+            <h1 class="h2">Tambah Data Riwayat Persediaan Telur</h1>
             <div class="btn-toolbar mb-2 mb-md-0">
                 <div class="btn-group me-2">
-                    <a href="index.php?r=staff-gudang/telur" class="btn btn-sm btn-primary">Kembali</a>
+                    <a href="index.php?r=staff-gudang/telur/riwayat" class="btn btn-sm btn-primary">Kembali</a>
                 </div>
             </div>
         </div>

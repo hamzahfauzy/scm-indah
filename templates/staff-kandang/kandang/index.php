@@ -1,12 +1,7 @@
 <section class="content">
     <div class="container-fluid">
         <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-            <h1 class="h2">Data Persediaan Telur</h1>
-            <div class="btn-toolbar mb-2 mb-md-0">
-                <div class="btn-group me-2">
-                    <a href="index.php?r=staff-gudang/telur/riwayat" class="btn btn-sm btn-primary">Riwayat</a>
-                </div>
-            </div>
+            <h1 class="h2">Data Kandang</h1>
         </div>
 
         <?php if($msg = session()->get_flash('success')): ?>
@@ -26,27 +21,37 @@
                 <thead>
                     <tr>
                         <th>No</th>
-                        <th>Jenis Telur</th>
-                        <th>Jumlah</th>
+                        <th>Nomor Kandang</th>
+                        <th>Kuota</th>
+                        <th>Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <?php if(empty($telur)): ?>
+                    <?php if(empty($rows)): ?>
                     <tr>
-                        <td colspan="3"><i>Tidak ada data</i></td>
+                        <td colspan="4"><i>Tidak ada data</i></td>
                     </tr>
                     <?php endif ?>
                     <?php 
                     $conn = get_connection();
                     $db   = new src\Database($conn);
-                    foreach($telur as $key => $value):
-                        $db->query = "SELECT SUM(jumlah_telur) as total FROM tb_penjualan WHERE jenis_telur='$value->jenis_telur'"; 
-                        $penjualan = $db->exec('single');
+                    foreach($rows as $key => $value): 
+                        $db->query = "SELECT SUM(jumlah) as jumlah_ayam FROM tb_persediaan_ayam WHERE kandang_id=$value->id";
+                        $persediaan = $db->exec('single');
                     ?>
                     <tr>
                         <td><?=++$key?></td>
-                        <td><?=$value->jenis_telur?></td>
-                        <td><?=$value->jumlah-$penjualan->total?></td>
+                        <td><?=$value->nomor_kandang?></td>
+                        <td>
+                        <?=$value->kuota?>
+                        <?php if($persediaan->jumlah_ayam): ?>
+                        <br>
+                        Jumlah Ayam : <?=$persediaan->jumlah_ayam?>
+                        <?php endif ?>
+                        </td>
+                        <td>
+                            <a href="index.php?r=staff-kandang/kandang/riwayat&id=<?=$value->id?>" class="btn btn-sm btn-warning">Riwayat</a>
+                        </td>
                     </tr>
                     <?php endforeach ?>
                 </tbody>

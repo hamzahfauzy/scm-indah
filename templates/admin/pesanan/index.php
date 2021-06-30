@@ -1,10 +1,10 @@
 <section class="content">
     <div class="container-fluid">
         <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-            <h1 class="h2">Data Persediaan Telur</h1>
+            <h1 class="h2">Data Pesanan</h1>
             <div class="btn-toolbar mb-2 mb-md-0">
                 <div class="btn-group me-2">
-                    <a href="index.php?r=staff-gudang/telur/riwayat" class="btn btn-sm btn-primary">Riwayat</a>
+                    <a href="index.php?r=admin/pesanan/create" class="btn btn-sm btn-primary">Buat Pesanan</a>
                 </div>
             </div>
         </div>
@@ -26,27 +26,38 @@
                 <thead>
                     <tr>
                         <th>No</th>
-                        <th>Jenis Telur</th>
+                        <th>Tanggal</th>
                         <th>Jumlah</th>
+                        <th>Status</th>
+                        <th>Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <?php if(empty($telur)): ?>
+                    <?php if(empty($rows)): ?>
                     <tr>
-                        <td colspan="3"><i>Tidak ada data</i></td>
+                        <td colspan="5"><i>Tidak ada data</i></td>
                     </tr>
                     <?php endif ?>
                     <?php 
-                    $conn = get_connection();
-                    $db   = new src\Database($conn);
-                    foreach($telur as $key => $value):
-                        $db->query = "SELECT SUM(jumlah_telur) as total FROM tb_penjualan WHERE jenis_telur='$value->jenis_telur'"; 
-                        $penjualan = $db->exec('single');
+                    foreach($rows as $key => $value): 
                     ?>
                     <tr>
                         <td><?=++$key?></td>
-                        <td><?=$value->jenis_telur?></td>
-                        <td><?=$value->jumlah-$penjualan->total?></td>
+                        <td><?=$value->tanggal?></td>
+                        <td><?=$value->jumlah?></td>
+                        <td>
+                        <?=$value->status?>
+                        <?php if($value->status == 'Di Pesan'): ?>
+                        <br>
+                        <a href="index.php?r=admin/pesanan/sampai&id=<?=$value->id?>">Update Pesanan Sampai</a>
+                        <?php endif ?>
+                        </td>
+                        <td>
+                            <?php if($value->status == 'Di Pesan'): ?>
+                            <a href="index.php?r=admin/pesanan/edit&id=<?=$value->id?>" class="btn btn-sm btn-warning">Edit</a>
+                            <?php endif ?>
+                            <a href="index.php?r=admin/pesanan/delete&id=<?=$value->id?>" class="btn btn-sm btn-danger">Hapus</a>
+                        </td>
                     </tr>
                     <?php endforeach ?>
                 </tbody>

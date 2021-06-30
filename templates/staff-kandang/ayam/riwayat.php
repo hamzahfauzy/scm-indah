@@ -1,10 +1,10 @@
 <section class="content">
     <div class="container-fluid">
         <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-            <h1 class="h2">Data Persediaan Telur</h1>
+            <h1 class="h2">Data Riwayat Persediaan Ayam</h1>
             <div class="btn-toolbar mb-2 mb-md-0">
                 <div class="btn-group me-2">
-                    <a href="index.php?r=staff-gudang/telur/riwayat" class="btn btn-sm btn-primary">Riwayat</a>
+                    <a href="index.php?r=staff-kandang/ayam" class="btn btn-sm btn-warning">Kembali</a>
                 </div>
             </div>
         </div>
@@ -26,27 +26,33 @@
                 <thead>
                     <tr>
                         <th>No</th>
-                        <th>Jenis Telur</th>
-                        <th>Jumlah</th>
+                        <th>Tanggal</th>
+                        <th>Nomor Kandang</th>
+                        <th>Oleh</th>
+                        <th>Jumlah Ayam</th>
+                        <th>Keterangan</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <?php if(empty($telur)): ?>
+                    <?php if(empty($ayam)): ?>
                     <tr>
-                        <td colspan="3"><i>Tidak ada data</i></td>
+                        <td colspan="6"><i>Tidak ada data</i></td>
                     </tr>
                     <?php endif ?>
                     <?php 
                     $conn = get_connection();
                     $db   = new src\Database($conn);
-                    foreach($telur as $key => $value):
-                        $db->query = "SELECT SUM(jumlah_telur) as total FROM tb_penjualan WHERE jenis_telur='$value->jenis_telur'"; 
-                        $penjualan = $db->exec('single');
+                    foreach($ayam as $key => $value): 
+                        $kandang = $db->single('tb_kandang',['id'=>$value->kandang_id]);
+                        $pengguna = $db->single('tb_pengguna',['id'=>$value->pengguna_id]);
                     ?>
                     <tr>
                         <td><?=++$key?></td>
-                        <td><?=$value->jenis_telur?></td>
-                        <td><?=$value->jumlah-$penjualan->total?></td>
+                        <td><?=$value->tanggal?></td>
+                        <td><?=$kandang->nomor_kandang?></td>
+                        <td><?=$pengguna->username?></td>
+                        <td><?=$value->jumlah_ayam-$value->mati?></td>
+                        <td><?=$value->keterangan?></td>
                     </tr>
                     <?php endforeach ?>
                 </tbody>
