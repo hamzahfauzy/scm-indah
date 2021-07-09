@@ -26,6 +26,8 @@
                 <thead>
                     <tr>
                         <th>No</th>
+                        <th>Kode Pesanan</th>
+                        <th>Supplier</th>
                         <th>Tanggal</th>
                         <th>Jumlah</th>
                         <th>Status</th>
@@ -43,6 +45,8 @@
                     ?>
                     <tr>
                         <td><?=++$key?></td>
+                        <td><?=$value->kode_pesanan?></td>
+                        <td><?=$value->supplier?></td>
                         <td><?=$value->tanggal?></td>
                         <td><?=$value->jumlah?></td>
                         <td>

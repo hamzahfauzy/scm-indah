@@ -19,7 +19,7 @@ $navs = [
     'admin/pesanan' => 'pesanan',
     'admin/laporan' => 'laporan',
     'staff-kandang/ayam' => 'ayam',
-    'staff-kandang/kandang' => 'kandang',
+    'staff-kandang/kandang' => 'doc',
     'staff-gudang/telur' => 'telur',
     'staff-kasir/penjualan' => 'penjualan',
 ];

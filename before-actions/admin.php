@@ -1,5 +1,10 @@
 <?php
+if(startsWith($route,'admin/kandang') && in_array(session()->get('user')->role,['admin','staff-kandang']))
+{
 
+}
+else
+{
 $restricted_route = 'admin/*';
 
 $redirect_to = 'auth/login';
@@ -14,4 +19,5 @@ if(endsWith($restricted_route,'*'))
     {
         return redirect()->route($redirect_to);
     }
+}
 }

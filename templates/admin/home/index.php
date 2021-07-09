@@ -100,12 +100,12 @@
 
                     $usia = round($datediff / (60 * 60 * 24));
 
-                    if($usia <= 200) continue;
+                    if($usia <= 600) continue;
                     $exists = true;
                 ?>
                 <div class="alert alert-warning">
                     <span class="text-strong">Peringatan!</span> 
-                    Usia DOC pada kandang <?=$row->nomor_kandang?> telah lebih dari 200 hari. 
+                    Usia DOC pada kandang <?=$row->nomor_kandang?> telah lebih dari 600 hari. 
                     <?php if(session()->get('user')->role == 'admin'): ?>
                     Klik <a href="index.php?r=admin/pesanan/create">disini</a> untuk memesan DOC
                     <?php endif ?>

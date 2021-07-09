@@ -27,14 +27,14 @@
     </ul>
 </li>
 
-<li class="nav-item">
+<!-- <li class="nav-item">
     <a href="index.php?r=admin/kandang" class="nav-link <?= isset($GLOBALS['__NAV_ACTIVE']) && $GLOBALS['__NAV_ACTIVE']=='kandang'?'active':''?>">
         <i class="nav-icon fas fa-building"></i>
         <p>
             Data Kandang
         </p>
     </a>
-</li>
+</li> -->
 
 <li class="nav-item">
     <a href="index.php?r=admin/pesanan" class="nav-link <?= isset($GLOBALS['__NAV_ACTIVE']) && $GLOBALS['__NAV_ACTIVE']=='pesanan'?'active':''?>">
@@ -85,17 +85,17 @@
         </p>
     </a>
     <ul class="nav nav-treeview">
-        <li class="nav-item">
+        <!-- <li class="nav-item">
             <a href="index.php?r=admin/laporan/doc" class="nav-link">
                 <i class="far fa-circle nav-icon"></i>
                 <p>Laporan DOC</p>
             </a>
-        </li>
-        <!-- <li class="nav-item">
+        </li> -->
+        <li class="nav-item">
             <a href="index.php?r=admin/laporan/penjualan" class="nav-link">
                 <i class="far fa-circle nav-icon"></i>
                 <p>Laporan Penjualan</p>
             </a>
-        </li> -->
+        </li>
     </ul>
 </li>

@@ -11,6 +11,18 @@
 
         <form action="" method="post" class="col-12 col-md-6">
             <div class="mb-3">
+                <label for="">Kode Pesanan</label>
+                <input type="text" class="form-control" name="kode_pesanan" required>
+            </div>
+            <div class="mb-3">
+                <label for="">Supplier</label>
+                <input type="text" class="form-control" name="supplier" required>
+            </div>
+            <div class="mb-3">
+                <label for="">Deskripsi</label>
+                <textarea class="form-control" name="deskripsi" required></textarea>
+            </div>
+            <div class="mb-3">
                 <label for="">Jumlah</label>
                 <input type="number" class="form-control" name="jumlah" value="1" min="1" required>
             </div>
