@@ -33,7 +33,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <?php if(empty($ayam)): ?>
+                    <?php if(empty($pesanan)): ?>
                     <tr>
                         <td colspan="4"><i>Tidak ada data</i></td>
                     </tr>
@@ -41,20 +41,20 @@
                     <?php 
                     $conn = get_connection();
                     $db   = new src\Database($conn);
-                    foreach($ayam as $key => $value): 
-                        $kandang = $db->single('tb_kandang',['id'=>$value->kandang_id]);
+                    foreach($pesanan as $key => $value): 
+                       
                     ?>
                     <tr>
                         <td><?=++$key?></td>
-                        <td><?=$kandang->nomor_kandang?></td>
-                        <td><?=$value->jumlah?></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td><?=$value->kode_pesanan?></td>
+                        <td><?=$value->tanggal?></td>
+                        <td><?=$value->supplier?></td>
+                        <td><?=$value->deskripsi?></td>
+                        <td><?=$value->kuantitas_jual?></td>
+                        <td><?=$value->harga_satuan?></td>
+                        <td><?=$value->jumlah_bayar?></td>
+                        <td><?=$value->pembayaran?></td>
+                        <td><?=$value->tgl_byr?></td>
                     </tr>
                     <?php endforeach ?>
                 </tbody>

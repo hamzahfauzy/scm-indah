@@ -10,15 +10,15 @@
     <a href="index.php?r=staff-kandang/kandang" class="nav-link <?= isset($GLOBALS['__NAV_ACTIVE']) && $GLOBALS['__NAV_ACTIVE']=='doc'?'active':''?>">
         <i class="nav-icon fas fa-list-alt"></i>
         <p>
-            DOC
+            Persediaan Ayam
         </p>
     </a>
 </li>
 <li class="nav-item">
-    <a href="index.php?r=staff-kandang/ayam" class="nav-link <?= isset($GLOBALS['__NAV_ACTIVE']) && $GLOBALS['__NAV_ACTIVE']=='ayam'?'active':''?>">
+    <a href="index.php?r=staff-kandang/pesanan" class="nav-link <?= isset($GLOBALS['__NAV_ACTIVE']) && $GLOBALS['__NAV_ACTIVE']=='pesanan'?'active':''?>">
         <i class="nav-icon fas fa-file-alt"></i>
         <p>
-            Persediaan Ayam
+            DOC
         </p>
     </a>
 </li>
