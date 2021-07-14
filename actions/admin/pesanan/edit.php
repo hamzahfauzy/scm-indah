@@ -9,6 +9,9 @@ if(request()->isMethod('POST'))
 {
     $request  = request()->post();
     $db->update('tb_pesanan',[
+        'supplier' => $request->supplier,
+        'kode_pesanan' => $request->kode_pesanan,
+        'deskripsi' => $request->deskripsi,
         'jumlah' => $request->jumlah,
         'tanggal' => $request->tanggal,
     ],[
