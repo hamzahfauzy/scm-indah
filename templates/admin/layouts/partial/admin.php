@@ -56,7 +56,7 @@
         <li class="nav-item">
             <a href="index.php?r=staff-kandang/ayam" class="nav-link">
                 <i class="far fa-circle nav-icon"></i>
-                <p>Persediaan Ayam</p>
+                <p>Persediaan DOC</p>
             </a>
         </li>
         <li class="nav-item">

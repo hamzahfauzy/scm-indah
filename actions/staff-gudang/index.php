@@ -14,6 +14,8 @@ foreach($kandang as $value)
         'tanggal_masuk' => 'desc'
     ]);
 
+    if(empty($ayam)) continue;
+
     $doc += $ayam->jumlah;
 }
 

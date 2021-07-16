@@ -27,8 +27,24 @@
                 <input type="number" class="form-control" name="jumlah" value="<?=$row->jumlah??0?>" required>
             </div>
             <div class="mb-3">
-                <label for="">Tanggal</label>
+                <label for="">Tanggal Pemesanan</label>
                 <input type="date" class="form-control" name="tanggal" value="<?=$row->tanggal??date('Y-m-d')?>" required>
+            </div>
+            <div class="mb-3">
+                <label for="">Harga Satuan</label>
+                <input type="number" class="form-control" name="harga_satuan" value="1" min="1" value="<?=$row->harga_satuan?>" required>
+            </div>
+            <div class="mb-3">
+                <label for="">Jumlah Bayar</label>
+                <input type="number" class="form-control" name="jumlah_bayar" value="1" min="1" value="<?=$row->jumlah_bayar?>" required>
+            </div>
+            <div class="mb-3">
+                <label for="">Metode Pembayaran</label>
+                <input type="text" class="form-control" name="pembayaran" value="<?=$row->pembayaran?>" required>
+            </div>
+            <div class="mb-3">
+                <label for="">Tanggal Pembayaran</label>
+                <input type="date" class="form-control" name="tanggal_pembayaran" value="<?=$row->tanggal_pembayaran??date('Y-m-d')?>" required>
             </div>
             <button class="btn btn-success">Edit Pesanan</button>
         </form>

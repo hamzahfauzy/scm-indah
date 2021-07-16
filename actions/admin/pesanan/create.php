@@ -4,13 +4,10 @@ $db      = new src\Database($conn);
 
 if(request()->isMethod('POST'))
 {
-    $request = request()->post();
+    $request = request()->post(false);
+    $request['status'] = 'Di Pesan';
 
-    $db->insert('tb_pesanan',[
-        'jumlah' => $request->jumlah,
-        'tanggal' => $request->tanggal,
-        'status' => 'Di Pesan',
-    ]);
+    $db->insert('tb_pesanan',$request);
 
     return redirect()->route('admin/pesanan')->withMessage('success','Data Pesanan Berhasil Disimpan!');
 }

@@ -31,13 +31,15 @@
                         <th>Tanggal</th>
                         <th>Jumlah</th>
                         <th>Status</th>
+                        <th>Harga Satuan</th>
+                        <th>Jumlah Pembayaran</th>
                         <th>Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
                     <?php if(empty($rows)): ?>
                     <tr>
-                        <td colspan="5"><i>Tidak ada data</i></td>
+                        <td colspan="9"><i>Tidak ada data</i></td>
                     </tr>
                     <?php endif ?>
                     <?php 
@@ -56,6 +58,8 @@
                         <a href="index.php?r=admin/pesanan/sampai&id=<?=$value->id?>">Update Pesanan Sampai</a>
                         <?php endif ?>
                         </td>
+                        <td>Rp. <?=number_format($value->harga_satuan)?></td>
+                        <td>Rp. <?=number_format($value->jumlah_bayar)?></td>
                         <td>
                             <?php if($value->status == 'Di Pesan'): ?>
                             <a href="index.php?r=admin/pesanan/edit&id=<?=$value->id?>" class="btn btn-sm btn-warning">Edit</a>

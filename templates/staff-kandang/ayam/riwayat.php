@@ -29,7 +29,7 @@
                         <th>Tanggal</th>
                         <th>Nomor Kandang</th>
                         <th>Oleh</th>
-                        <th>Jumlah Ayam</th>
+                        <th>Jumlah</th>
                         <th>Keterangan</th>
                     </tr>
                 </thead>

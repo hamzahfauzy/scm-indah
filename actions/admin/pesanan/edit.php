@@ -7,11 +7,8 @@ $row    = $db->single('tb_pesanan',[
 
 if(request()->isMethod('POST'))
 {
-    $request  = request()->post();
-    $db->update('tb_pesanan',[
-        'jumlah' => $request->jumlah,
-        'tanggal' => $request->tanggal,
-    ],[
+    $request  = request()->post(false);
+    $db->update('tb_pesanan',$request,[
         'id' => $_GET['id']
     ]);
 

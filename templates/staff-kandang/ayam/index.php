@@ -1,7 +1,7 @@
 <section class="content">
     <div class="container-fluid">
         <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-            <h1 class="h2">Data Persediaan Ayam</h1>
+            <h1 class="h2">Data Persediaan DOC</h1>
         </div>
 
         <?php if($msg = session()->get_flash('success')): ?>
@@ -22,7 +22,7 @@
                     <tr>
                         <th>No</th>
                         <th>Nomor Kandang</th>
-                        <th>Jumlah Ayam</th>
+                        <th>Jumlah</th>
                         <th>Riwayat</th>
                     </tr>
                 </thead>

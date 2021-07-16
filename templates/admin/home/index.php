@@ -94,6 +94,8 @@
                         'tanggal_masuk' => 'desc'
                     ]);
 
+                    if(empty($ayam)) continue;
+
                     $now = time(); // or your date as well
                     $your_date = strtotime($ayam->tanggal_masuk);
                     $datediff = $now - $your_date;
