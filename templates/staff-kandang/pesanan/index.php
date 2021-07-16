@@ -1,7 +1,7 @@
 <section class="content">
     <div class="container-fluid">
         <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-            <h1 class="h2">Data Persediaan DOC</h1>
+            <h1 class="h2">Menu Persediaan DOC</h1>
         </div>
 
         <?php if($msg = session()->get_flash('success')): ?>
@@ -21,13 +21,19 @@
                 <thead>
                     <tr>
                         <th>No</th>
-                        <th>Nomor Kandang</th>
-                        <th>Jumlah</th>
-                        <th>Riwayat</th>
+                        <th>Kode Pesanan</th>
+                        <th>Tanggal</th>
+                        <th>Supplier</th>
+                        <th>Deskripsi Barang</th>
+                        <th>Kuantitas Jual</th>
+                        <th>Harga Satuan</th>
+                        <th>Jumlah Bayar</th>
+                        <th>Pembayaran</th>
+                        <th>Tanggal Bayar</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <?php if(empty($ayam)): ?>
+                    <?php if(empty($pesanan)): ?>
                     <tr>
                         <td colspan="4"><i>Tidak ada data</i></td>
                     </tr>
@@ -35,16 +41,20 @@
                     <?php 
                     $conn = get_connection();
                     $db   = new src\Database($conn);
-                    foreach($ayam as $key => $value): 
-                        $kandang = $db->single('tb_kandang',['id'=>$value->kandang_id]);
+                    foreach($pesanan as $key => $value): 
+                       
                     ?>
                     <tr>
                         <td><?=++$key?></td>
-                        <td><?=$kandang->nomor_kandang?></td>
-                        <td><?=$value->jumlah?></td>
-                        <td>
-                            <a href="index.php?r=staff-kandang/ayam/riwayat&id=<?=$value->id?>" class="btn btn-sm btn-warning">Riwayat</a>
-                        </td>
+                        <td><?=$value->kode_pesanan?></td>
+                        <td><?=$value->tanggal?></td>
+                        <td><?=$value->supplier?></td>
+                        <td><?=$value->deskripsi?></td>
+                        <td><?=$value->kuantitas_jual?></td>
+                        <td><?=$value->harga_satuan?></td>
+                        <td><?=$value->jumlah_bayar?></td>
+                        <td><?=$value->pembayaran?></td>
+                        <td><?=$value->tgl_byr?></td>
                     </tr>
                     <?php endforeach ?>
                 </tbody>
