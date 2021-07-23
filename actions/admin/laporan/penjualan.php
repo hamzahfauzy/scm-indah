@@ -9,6 +9,8 @@ if(isset($_GET['tanggal']) && $_GET['tanggal'] != '')
 {
     $rows = $db->all('tb_penjualan',[
         'tanggal'=>$_GET['tanggal']
+    ],[
+        'nama_konsumen' => 'ASC'
     ]);
 
     $produksi_telur = $db->all('tb_riwayat_telur',[

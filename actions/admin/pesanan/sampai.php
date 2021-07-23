@@ -15,6 +15,8 @@ if(request()->isMethod('POST'))
     $db->update('tb_pesanan',[
         'kandang_id' => $request->kandang_id,
         'status' => 'Sampai',
+        'tanggal_sampai' => $request->tanggal_sampai,
+        'usia' => $request->usia,
         'updated_at' => date('Y-m-d H:i:s'),
     ],[
         'id' => $_GET['id']

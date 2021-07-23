@@ -38,7 +38,7 @@
                 <tbody>
                     <?php if(empty($riwayat)): ?>
                     <tr>
-                        <td colspan="6"><i>Tidak ada data</i></td>
+                        <td colspan="7"><i>Tidak ada data</i></td>
                     </tr>
                     <?php endif ?>
                     <?php 
@@ -54,15 +54,9 @@
                         <td><?=$pengguna->username?></td>
                         <td>
                         <?=$value->jumlah_ayam?><br>
-                        Sakit : <?=$value->sakit??0?>, Mati : <?=$value->mati??0?>, Sisa : <?=$value->jumlah_ayam-$value->mati?>
+                        Jual : <?=$value->sakit??0?>, Mati : <?=$value->mati??0?>, Sisa : <?=$value->jumlah_ayam-$value->mati?>
                         </td>
-                        <td>
-                            Produk : <?=$value->produk??0?><br>
-                            Ikat : <?=$value->ikat??0?><br>
-                            Piring : <?=$value->piring??0?><br>
-                            Butir : <?=$value->butir??0?><br>
-                            Pecah : <?=$value->pecah??0?><br>
-                        </td>
+                        <td><?=$value->produk??0?> Butir</td>
                         <td><?=$value->keterangan?></td>
                         <td>
                             <?php if(session()->get('user')->id == $value->pengguna_id && $value->keterangan != 'DOC Masuk' && $key == 1): ?>

@@ -23,12 +23,12 @@
                 <input type="number" class="form-control" name="ayam[jumlah_ayam]" required>
             </div>
             <div class="mb-3">
-                <label for="">Sakit</label>
-                <input type="number" class="form-control" name="ayam[sakit]" required>
-            </div>
-            <div class="mb-3">
                 <label for="">Mati</label>
                 <input type="number" class="form-control" name="ayam[mati]" required>
+            </div>
+            <div class="mb-3">
+                <label for="">Jual</label>
+                <input type="number" class="form-control" name="ayam[sakit]" required>
             </div>
             <button class="btn btn-success">Simpan</button>
         </form>

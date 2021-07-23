@@ -45,7 +45,7 @@
     </a>
 </li>
 
-<li class="nav-item">
+<!-- <li class="nav-item">
     <a href="javascript:void(0)" class="nav-link <?= isset($GLOBALS['__NAV_ACTIVE']) && in_array($GLOBALS['__NAV_ACTIVE'],['telur','ayam'])?'active':''?>">
         <i class="nav-icon fas fa-list-alt"></i>
         <p>
@@ -66,16 +66,16 @@
             </a>
         </li>
     </ul>
-</li>
+</li> -->
 
-<li class="nav-item">
+<!-- <li class="nav-item">
     <a href="index.php?r=staff-kasir/penjualan" class="nav-link <?= isset($GLOBALS['__NAV_ACTIVE']) && $GLOBALS['__NAV_ACTIVE']=='penjualan'?'active':''?>">
         <i class="nav-icon fas fa-shopping-basket"></i>
         <p>
             Data Penjualan
         </p>
     </a>
-</li>
+</li> -->
 
 <li class="nav-item">
     <a href="javascript:void(0)" class="nav-link <?= isset($GLOBALS['__NAV_ACTIVE']) && in_array($GLOBALS['__NAV_ACTIVE'],['laporan'])?'active':''?>">
@@ -85,16 +85,22 @@
         </p>
     </a>
     <ul class="nav nav-treeview">
-        <!-- <li class="nav-item">
+        <li class="nav-item">
             <a href="index.php?r=admin/laporan/doc" class="nav-link">
                 <i class="far fa-circle nav-icon"></i>
-                <p>Laporan DOC</p>
+                <p>Laporan Persediaan Ayam</p>
             </a>
-        </li> -->
+        </li>
         <li class="nav-item">
             <a href="index.php?r=admin/laporan/penjualan" class="nav-link">
                 <i class="far fa-circle nav-icon"></i>
-                <p>Laporan Penjualan</p>
+                <p>Laporan Penjualan Telur</p>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a href="index.php?r=admin/laporan/telur" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                <p>Laporan Persediaan Telur</p>
             </a>
         </li>
     </ul>

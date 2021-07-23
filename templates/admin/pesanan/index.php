@@ -28,11 +28,9 @@
                         <th>No</th>
                         <th>Kode Pesanan</th>
                         <th>Supplier</th>
-                        <th>Tanggal</th>
+                        <th>Tanggal Pesanan</th>
                         <th>Jumlah</th>
                         <th>Status</th>
-                        <th>Harga Satuan</th>
-                        <th>Jumlah Pembayaran</th>
                         <th>Aksi</th>
                     </tr>
                 </thead>
@@ -53,13 +51,14 @@
                         <td><?=$value->jumlah?></td>
                         <td>
                         <?=$value->status?>
-                        <?php if($value->status == 'Di Pesan'): ?>
                         <br>
+                        <?php if($value->status == 'Di Pesan'): ?>
                         <a href="index.php?r=admin/pesanan/sampai&id=<?=$value->id?>">Update Pesanan Sampai</a>
+                        <?php elseif($value->status == 'Sampai'):?>
+                        Pada : <?=$value->tanggal_sampai?><br>
+                        Usia : <?=$value->usia?> Hari
                         <?php endif ?>
                         </td>
-                        <td>Rp. <?=number_format($value->harga_satuan)?></td>
-                        <td>Rp. <?=number_format($value->jumlah_bayar)?></td>
                         <td>
                             <?php if($value->status == 'Di Pesan'): ?>
                             <a href="index.php?r=admin/pesanan/edit&id=<?=$value->id?>" class="btn btn-sm btn-warning">Edit</a>

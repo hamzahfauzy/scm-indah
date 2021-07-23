@@ -13,17 +13,22 @@
             <table class="table table-bordered">
                 <tr>
                     <td>Tanggal Masuk</td>
+                    <td>Usia</td>
                     <td>Jumlah</td>
-                    <td>Sakit</td>
+                    <td>Jual</td>
                     <td>Mati</td>
                     <td>Produk</td>
-                    <td>Ikat</td>
-                    <td>Piring</td>
-                    <td>Butir</td>
-                    <td>Pecah</td>
                     <td>Keterangan</td>
                 </tr>
-                <?php foreach($ayam as $value): ?>
+                <?php 
+                $conn = get_connection();
+                $db   = new src\Database($conn);
+                foreach($ayam as $value): 
+                    $pesanan = $db->single('tb_pesanan',[
+                        'kandang_id' => $value->kandang_id,
+                        'tanggal_sampai' => $value->tanggal_masuk,
+                    ]);
+                ?>
                 <tr>
                     <td>
                     <input type="hidden" name="ayam[<?=$value->id?>][kandang_id]" value="<?=$_GET['id']?>">
@@ -31,6 +36,7 @@
                     <input type="hidden" name="ayam[<?=$value->id?>][pengguna_id]" value="<?=session()->get('user')->id?>">
                     <?=$value->tanggal_masuk?>
                     </td>
+                    <td><?=get_usia($pesanan->tanggal_sampai,date('Y-m-d'),$pesanan->usia)?> Hari</td>
                     <td>
                         <input type="number" name="ayam[<?=$value->id?>][jumlah_ayam]" class="form-control" value="<?=$value->jumlah?>">
                     </td>
@@ -42,18 +48,6 @@
                     </td>
                     <td>
                         <input type="number" name="ayam[<?=$value->id?>][produk]" class="form-control" value="0" min="0">
-                    </td>
-                    <td>
-                        <input type="number" name="ayam[<?=$value->id?>][ikat]" class="form-control" value="0" min="0">
-                    </td>
-                    <td>
-                        <input type="number" name="ayam[<?=$value->id?>][piring]" class="form-control" value="0" min="0">
-                    </td>
-                    <td>
-                        <input type="number" name="ayam[<?=$value->id?>][butir]" class="form-control" value="0" min="0">
-                    </td>
-                    <td>
-                        <input type="number" name="ayam[<?=$value->id?>][pecah]" class="form-control" value="0" min="0">
                     </td>
                     <td>
                         <input type="text" name="ayam[<?=$value->id?>][keterangan]" class="form-control" value="-">

@@ -100,3 +100,12 @@ function endsWith( $haystack, $needle ) {
    }
    return substr( $haystack, -$length ) === $needle;
 }
+
+function get_usia($tgl1, $tgl2, $usia)
+{
+    $diff = strtotime($tgl2) - strtotime($tgl1);
+      
+    // 1 day = 24 hours
+    // 24 * 60 * 60 = 86400 seconds
+    return abs(round($diff / 86400))+$usia;
+}

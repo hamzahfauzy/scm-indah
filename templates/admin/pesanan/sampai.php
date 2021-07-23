@@ -15,6 +15,10 @@
                 <input type="number" class="form-control" name="jumlah" value="<?=$row->jumlah?>" readonly>
             </div>
             <div class="mb-3">
+                <label for="">Usia (Hari)</label>
+                <input type="number" class="form-control" name="usia" value="1">
+            </div>
+            <div class="mb-3">
                 <label for="">Kandang</label>
                 <select name="kandang_id" class="form-control">
                     <option value="">- Pilih -</option>
@@ -23,6 +27,7 @@
                     <?php endforeach ?>
                 </select>
             </div>
+            <input type="hidden" name="tanggal_sampai" value="<?=date('Y-m-d')?>">
             <button class="btn btn-success">Update Pesanan</button>
         </form>
         <p></p>

@@ -4,7 +4,7 @@
 
         <?php else: ?>
         <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-            <h1 class="h2">Laporan DOC</h1>
+            <h1 class="h2">Laporan Persediaan Ayam</h1>
         </div>
 
         <?php if($msg = session()->get_flash('success')): ?>
@@ -38,7 +38,7 @@
         <div class="table-responsive">
             <?php if(isset($_GET['action']) && $_GET['action'] == 'cetak'): ?>
             <script>window.print()</script>
-            <h2 align="center">LAPORAN DOC</h2>
+            <h2 align="center">LAPORAN PERSEDIAAN AYAM</h2>
             <p align="center">Tanggal <?=$_GET['tanggal']?></p>
             <table width="100%" border="1">
             <?php else: ?>
@@ -48,15 +48,13 @@
                     <tr>
                         <th>No</th>
                         <th>Nomor Kandang</th>
-                        <th>Jumlah Ayam</th>
-                        <th>Sakit</th>
+                        <th>Usia</th>
+                        <th>Stok Awal</th>
                         <th>Mati</th>
+                        <th>Jual</th>
+                        <th>Stok Akhir</th>
                         <th>Produk</th>
                         <th>%</th>
-                        <th>Ikat</th>
-                        <th>Piring</th>
-                        <th>Butir</th>
-                        <th>Pecah</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -69,25 +67,33 @@
                     $conn = get_connection();
                     $db   = new src\Database($conn);
                     $total_persen = 0;
+                    $total_stok_akhir = 0;
                     foreach($rows as $key => $value): 
                         $kandang = $db->single('tb_kandang',[
                             'id' => $value->kandang_id
                         ]);
+                        $ayam  = $db->single('tb_persediaan_ayam',[
+                            'id' => $value->ayam_id
+                        ]);
+                        $pesanan = $db->single('tb_pesanan',[
+                            'kandang_id' => $value->kandang_id,
+                            'tanggal_sampai' => $ayam->tanggal_masuk,
+                        ]);
                         $persen = $value->produk/$value->jumlah_ayam*100;
                         $total_persen += $persen;
+                        $stok_akhir = $value->jumlah_ayam-($value->mati+$value->sakit);
+                        $total_stok_akhir+=$stok_akhir;
                     ?>
                     <tr>
                         <td><?=++$key?></td>
                         <td><?=$kandang->nomor_kandang?></td>
+                        <td><?=get_usia($pesanan->tanggal_sampai,$_GET['tanggal'],$pesanan->usia)?> Hari</td>
                         <td><?=$value->jumlah_ayam?></td>
-                        <td><?=$value->sakit?></td>
                         <td><?=$value->mati?></td>
+                        <td><?=$value->sakit?></td>
+                        <td><?=$stok_akhir?></td>
                         <td><?=$value->produk?></td>
                         <td><?=number_format($persen)?></td>
-                        <td><?=$value->ikat?></td>
-                        <td><?=$value->piring?></td>
-                        <td><?=$value->butir?></td>
-                        <td><?=$value->pecah?></td>
                     </tr>
                     <?php endforeach ?>
 
@@ -107,15 +113,13 @@
                     <tr>
                         <td></td>
                         <td><b>Total</b></td>
+                        <td></td>
                         <td><?=$stats->total_jumlah_ayam?></td>
                         <td><?=$stats->total_sakit?></td>
                         <td><?=$stats->total_mati?></td>
+                        <td><?=$total_stok_akhir?></td>
                         <td><?=$stats->total_produk?></td>
                         <td><?=number_format($total_persen)?></td>
-                        <td><?=$stats->total_ikat?></td>
-                        <td><?=$stats->total_piring?></td>
-                        <td><?=$stats->total_butir?></td>
-                        <td><?=$stats->total_pecah?></td>
                     </tr>
                 </tbody>
             </table>
