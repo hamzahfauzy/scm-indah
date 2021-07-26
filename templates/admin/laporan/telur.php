@@ -66,7 +66,7 @@
                 $all_total_butir = 0;
                 foreach($rows as $key => $value): 
                     $butir = $value->jumlah;
-                    $ikat = ($butir/30) / 10;
+                    $ikat = floor(floor($butir/30) / 10);
                     $ikat = $ikat < 1 ? 0 : $ikat;
                     $all_total_ikat += $ikat;
                     $total_butir_ikat = $ikat * 300;
