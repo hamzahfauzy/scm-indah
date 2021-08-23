@@ -103,7 +103,7 @@
                     <td></td>
                     <td style="font-weight:bold">Stok Gudang</td>
                     <td></td>
-                    <td style="font-weight:bold"><?=$total_stok-$total_produksi?></td>
+                    <td style="font-weight:bold"><?=$total_stok_gudang?></td>
                     <td></td>
                     <td></td>
                 </tr>
@@ -111,7 +111,7 @@
                     <td></td>
                     <td style="font-weight:bold">Sisa Produksi</td>
                     <td></td>
-                    <td style="font-weight:bold"><?=($total_stok-$total_produksi)+($total_stok-$total_terjual)?></td>
+                    <td style="font-weight:bold"><?=$total_stok_gudang+$total_produksi-$total_terjual?></td>
                     <td></td>
                     <td></td>
                 </tr>
