@@ -38,6 +38,8 @@
         <div class="table-responsive">
             <?php if(isset($_GET['action']) && $_GET['action'] == 'cetak'): ?>
             <script>window.print()</script>
+            <h1 align="center">CV. ABADI BERSAMA</h1>
+            <hr>
             <h2 align="center">LAPORAN PERSEDIAAN AYAM</h2>
             <p align="center">Tanggal <?=$_GET['tanggal']?></p>
             <table width="100%" border="1">
@@ -123,6 +125,17 @@
                     </tr>
                 </tbody>
             </table>
+            <center>
+                <b>Kisaran, <?= date('d-m-Y') ?></b>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <b><u>Phendi Tanata</u></b>
+                DIREKTUR
+            </center>
         </div>
         <?php endif ?>
     </div>
